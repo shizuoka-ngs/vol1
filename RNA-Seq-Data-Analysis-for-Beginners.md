@@ -81,7 +81,7 @@ $ conda install kallist
 以下、どのファイルを用いるか参考として記述しておきます。
 
 ### ヒトのcDNA配列
-[Ensemble](https://asia.ensembl.org/info/data/ftp/index.html) からヒトのfasta形式のcDNA配列を入手します。
+[Ensembl](https://asia.ensembl.org/info/data/ftp/index.html) からヒトのfasta形式のcDNA配列を入手します。
 
 Ensemebleの[ヒトcDNA配列のftpサイト](ftp://ftp.ensembl.org/pub/release-92/fasta/homo_sapiens/cdna/)には
 ~abinitio.fa.gzと~all.fa.gzがありますが、今回は
