@@ -31,7 +31,17 @@ gitも無ければインストールしてください。
 gitコマンドを実行しようとするとインストールされる様ですが（未確認）、
 Homebrewで下記の様にあらかじめインストールしておくのが何も考えないで済み楽な気がします。
 
-```markdown
+```
 $ brew install git
 ```
 
+### minicondaをインストールする
+
+今回はkallistのインストールでminicondaを使います。
+
+[Condaの公式サイト](https://conda.io/miniconda.html)からMac OSX 64-bit版のbashインストーラーをダウンロードできます。
+スクリプトをダウンロードしたら下記のようにインストーラを実行します。
+```
+$ sh DLしたファイルパス/Miniconda3-latest-MacOSX-x86_64.sh
+```
+pyenvを使っている様な人は初心者では無いので各自調べてインストールしてください。
