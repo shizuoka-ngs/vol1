@@ -38,7 +38,7 @@ $ brew install git
 
 ### minicondaをインストールする
 
-今回はkallistのインストールでminicondaを使います。
+今回はkallistoのインストールでminicondaを使います。
 
 [Condaの公式サイト](https://conda.io/miniconda.html)からMac OSX 64-bit版のbashインストーラーをダウンロードできます。
 スクリプトをダウンロードしたら下記のようにインストーラを実行します。
