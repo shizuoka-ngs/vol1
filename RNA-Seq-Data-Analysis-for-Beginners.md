@@ -48,7 +48,7 @@ $ sh DLしたファイルパス/Miniconda3-latest-MacOSX-x86_64.sh
 pyenvを使っている様な人は初心者では無いので各自調べてインストールしてください。
 
 ### sratoolkitをインストール
-SRAファイルをfastq dumpするために使います。fastq-dumpはsratool kitに含まれているため。
+SRAファイルをfastq-dumpするために使います。fastq-dumpはsratool kitに含まれているため。
 sratoolkitをHomebrewでインストールしておきます。
 
 ```
@@ -64,7 +64,6 @@ kallistoはcondaコマンドでインストールすることができます。
 ```
 $ conda install kallist
 ```
-
 
 ### その他インストールしておく方が良いツール
 
@@ -93,13 +92,65 @@ Ensemebleの[ヒトcDNA配列のftpサイト](ftp://ftp.ensembl.org/pub/release-
 kallistoの解析には今回ペアエンドのfastqファイルを利用します。ただしfastqファイルは非常に多くダウンロードに時間がかかるため、
 今回は圧縮されファイルサイズの小さいsraファイルをダウンロードして、これをfastq-dumpを使ってペアエンドのfastqを自分で生成しています。
 
-解析するサンプルはMCF7の低酸素状態の細胞と、コントロールの細胞のから配列データをsraとして入手します。
+解析するサンプルはMCF7の低酸素状態の細胞と、コントロールの細胞から配列データをSRAファイルで入手します。
 
 サンプルデータについての詳細は[ArrayExress:E-MTAB-4264 - Tuning the transcriptional response to hypoxia through HIF prolyl- and asparaginyl-hydroxylase inhibition:Sequencing Data](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-4264/samples/) をご覧ください。
 
 実際に入手したファイル（低酸素状態・コントロール）は下記の通りです。
 
-- [ERR1551404.fastq.gz](ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR155/004/ERR1551404/ERR1551404.fastq.gz)
-- [ERR1551408.fastq.gz](ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR155/008/ERR1551408/ERR1551408.fastq.gz)
+- ERR1551404.sra: ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sralite/ByExp/litesra/ERX/ERX162/ERX1622160/ERR1551404/ERR1551404.sra
+- ERR1551408.sra: ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sralite/ByExp/litesra/ERX/ERX162/ERX1622164/ERR1551408/ERR1551408.sra
+
+## 3. 発現解析
+
+### SRAファイルからfastqファイルを生成する
+
+ダウンロードしたSRAファイルをsratoolkitを使ってペアエンドのfastqファイルに変換します。
+
+```
+$ fastq-dump --split-files 取得したSRAファイルのパス
+```
+配布したSRAを使うのならば、以下のような二つのファイルができるはず。
+```
+$ fastq-dump --split-files ERR1551404.sra 
+$ ls
+ERR1551404_1.fastq    ERR1551404_2.fastq
+```
+コントロールのサンプルについてもfastqを生成しておきます。
+```
+$ fastq-dump --split-files ERR1551408.sra
+```
+### kallisto indexでヒトのトランスクリプトームのインデックスを作成する 
+kallistoではindexファイルを配布するより、kallisto indexで構築した方が速いということで、
+[Ensembl](https://www.ensembl.org/info/data/ftp/index.html)からfastaファイルをダウンロードして
+自分で作ることを推奨しているようです。今回ハードディスクにヒトのcDNA（FASTA）が含まれています。
+このファイルを使って（gzipのままでOK）下記のようにインデックスを作成します。
+
+```
+$ kallisto index -i filename_anything_you_like Homo_sapiens.GRCh38.cdna.all.fa.gz
+```
+
+### 定量する
+kallisto quantoで発現量を定量します。ペアエンドの定量なので、変換したfastqファイルの
+_1.fastqと_2.fastをセットで使います。
+
+```
+$ kallisto quanto -i index_file_name -o output_dir_name ERR1551404_1.fastq ERR1551404_2.fastq
+```
+kallistoはthread数を指定するオプションが荒れ野で、例えばコア数2のMacBook Airでは下記のように
+```
+$ kallisto quanto -t 2 -i index_file_name ERR1551404_1.fastq ERR1551404_2.fastq -o .
+```
+kallistoの使い方の詳細については[こちらのブログ](https://bonohu.wordpress.com/2017/11/15/kallisto/)が参考になると思います。
+
+### 確認
+kallisto quantoが終了すると、指定したoutput dirにいくつかのファイルができているはずです。
+このうち、abundance.tsvを見てみます
+```
+$ sort -k 5 -rn abundance.tsv | less
+```
+
+上記の例では、5番目のカラム、Transcripts Per Million（TPM）を発現量の多い順にソートして表示しています。
+
 
 
