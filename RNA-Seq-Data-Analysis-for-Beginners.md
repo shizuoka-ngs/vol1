@@ -83,7 +83,7 @@ $ conda install kallist
 [Ensembl](https://asia.ensembl.org/info/data/ftp/index.html) からヒトのfasta形式のcDNA配列を入手します。
 
 Ensemblの[ヒトcDNA配列のftpサイト](ftp://ftp.ensembl.org/pub/release-92/fasta/homo_sapiens/cdna/)には
-~abinitio.fa.gzと~all.fa.gzがありますが、今回は
+*.abinitio.fa.gzと *.all.fa.gzがありますが、今回は
 - [Homo_sapiens.GRCh38.cdna.all.fa.gz](ftp://ftp.ensembl.org/pub/release-92/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz)
 
 を利用します。
@@ -153,4 +153,5 @@ $ sort -k 5 -rn abundance.tsv | less
 上記の例では、5番目のカラム、Transcripts Per Million（TPM）を発現量の多い順にソートして表示しています。
 
 
+## 4. データ可視化
 
