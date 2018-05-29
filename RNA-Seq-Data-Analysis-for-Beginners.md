@@ -59,11 +59,24 @@ $ brew install sratoolkit
 ### kallistoをインストール
 
 トランスクリプトームのリファレンス配列のインデックス作成と、発現定量にkallistoを利用します。
-kallistoはcondaコマンドでインストールすることができます。
+kallistoは [condaコマンドでインストールすることができます](https://bioconda.github.io/recipes/kallisto/README.html)。
 
 ```
-$ conda install kallist
+$ conda config --add channels defaults
+$ conda config --add channels conda-forge
+$ conda config --add channels bioconda
+$ conda install kallisto
 ```
+
+### jupyterをインストールする
+発現量のプロットにjupyterを使います。
+
+jupyterはminicondaがインストールされている状態でcondaを使ってインストールできます。
+```markdown
+$ conda update conda
+$ conda install jupyter
+```
+
 
 ### その他インストールしておく方が良いツール
 
