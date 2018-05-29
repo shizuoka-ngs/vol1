@@ -148,11 +148,11 @@ kallisto quantoで発現量を定量します。ペアエンドの定量なの�
 _1.fastqと_2.fastをセットで使います。
 
 ```
-$ kallisto quanto -i index_file_name -o output_dir_name ERR1551404_1.fastq ERR1551404_2.fastq
+$ kallisto quant -i index_file_name -o output_dir_name ERR1551404_1.fastq ERR1551404_2.fastq
 ```
-kallistoはthread数を指定するオプションが荒れ野で、例えばコア数2のMacBook Airでは下記のように
+kallistoはthread数をオプションで指定できるので、例えばコア数2のMacBook Airでは下記のような例となります。
 ```
-$ kallisto quanto -t 2 -i index_file_name ERR1551404_1.fastq ERR1551404_2.fastq -o .
+$ kallisto quant -t 2 -i GRCh38_kallisto_index -o . ERR1551404_1.fastq ERR1551404_2.fastq
 ```
 kallistoの使い方の詳細については[こちらのブログ](https://bonohu.wordpress.com/2017/11/15/kallisto/)が参考になると思います。
 
