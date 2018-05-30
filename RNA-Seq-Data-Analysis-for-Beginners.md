@@ -72,9 +72,13 @@ $ conda install kallisto
 発現量のプロットにjupyterを使います。
 
 jupyterはminicondaがインストールされている状態でcondaを使ってインストールできます。
+jupyterのインストールのついでに今回、散布図を描画するために使うpandas, matplotlib, plotlyをインストールします。
 ```markdown
 $ conda update conda
 $ conda install jupyter
+$ conda install pandas
+$ conda install matplotlib
+$ conda install plotly
 ```
 
 
