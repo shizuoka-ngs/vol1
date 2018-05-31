@@ -256,6 +256,6 @@ e.sort_values('diff', ascending=False)[['target_id', 'diff']].iloc[:1000].to_csv
 
 ## 5. metascapeでエンリッチメント解析
 
-- [metascape](http://metascape.org/gp/index.html#/main/step1) で出力したファイルをアップロードします。
+- [metascape.org](http://metascape.org/gp/index.html#/main/step1) のサイトでjupyte notebookで出力したファイルをアップロードします。
 - "Express Analysis"ボタンを押します。
 - 数十秒後に処理が終わるので"Analysis Report Page"を押して"Metascape Gene List Analysis Report"を確認します。
