@@ -1,5 +1,8 @@
 # 生命科学ガチ初心者でもできるRNA-seqデータ解析 - kallistoでトランスクリプトを発現定量してみよう
 
+- 資料：[https://github.com/shizuoka-ngs/vol1](hhttps://github.com/shizuoka-ngs/vol1/blob/master/RNA-Seq-Data-Analysis-for-Beginners.md)
+- 概要：ヒトの乳癌細胞株MCF-7で低酸素ストレス下とコントロールの転写産物をkallistoで定量し発現解析を行います。
+
 ## 1. 端末の環境設定（Mac）
 
 ### Xcodeをインストールする
@@ -111,7 +114,7 @@ Ensemblの[ヒトcDNA配列のftpサイト](ftp://ftp.ensembl.org/pub/release-92
 kallistoの解析には今回ペアエンドのfastqファイルを利用します。ただしfastqファイルは非常に多くダウンロードに時間がかかるため、
 今回は圧縮されファイルサイズの小さいsraファイルをダウンロードして、これをfastq-dumpを使ってペアエンドのfastqを自分で生成しています。
 
-解析するサンプルはMCF7の低酸素状態の細胞と、コントロールの細胞から配列データをSRAファイルで入手します。
+解析するサンプルはMCF-7の低酸素状態の細胞と、コントロールの細胞から配列データをSRAファイルで入手します。
 
 サンプルデータについての詳細は[ArrayExress:E-MTAB-4264 - Tuning the transcriptional response to hypoxia through HIF prolyl- and asparaginyl-hydroxylase inhibition:Sequencing Data](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-4264/samples/) をご覧ください。
 
@@ -253,3 +256,6 @@ e.sort_values('diff', ascending=False)[['target_id', 'diff']].iloc[:1000].to_csv
 
 ## 5. metascapeでエンリッチメント解析
 
+- [metascape](http://metascape.org/gp/index.html#/main/step1) で出力したファイルをアップロードします。
+- "Express Analysis"ボタンを押します。
+- 数十秒後に処理が終わるので"Analysis Report Page"を押して"Metascape Gene List Analysis Report"を確認します。
