@@ -170,7 +170,7 @@ $ sort -k 5 -rn abundance.tsv | less
 上記の例では、5番目のカラム、Transcripts Per Million（TPM）を発現量の多い順にソートして表示しています。
 
 
-## 4. データ可視化
+## 4. 散布図を描いてみる
 
 ### Jupyterを使って散布図をプロット
 二つのサンプルでそれぞれ発現量を計算したら、Jupyter Noteboookを使って、
@@ -194,7 +194,7 @@ e1.columns = ['target_id', 'TPM_ERR1551404']
 
 e2 = pd.read_table(ERR1551408のabunndance.tsv)
 e2 = e2.drop(columns=['length', 'eff_length', 'est_counts'])
-e2.columns = ['target_id', 'TPM_ERR1551404']
+e2.columns = ['target_id', 'TPM_ERR1551408']
 
 e = pd.merge(e1, e2, on='target_id')
 ```
@@ -214,7 +214,6 @@ plt.ylabel('ERR1551404')
 e['log_ERR1551404'] = np.log10(e['TPM_ERR1551404'] + 1)
 e['log_ERR1551408'] = np.log10(e['TPM_ERR1551408'] + 1)
 e['diff'] = abs(e['log_ERR1551404'] - e['log_ERR1551408'])
-e.head() 
 ```
 
 - 対数値を散布図にプロットする
@@ -231,7 +230,6 @@ plotlyで同様の散布図を描画してみます。
 ```python
 from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
 import plotly.graph_objs as go
-#import plotly.offline
 
 init_notebook_mode(connected=False)  
 
@@ -244,6 +242,12 @@ data = [go.Scatter(
 plot(data, filename='basic-scatter') 
 # plotの代わりにiplotでも良いですが、メモリが足りずNotebookが固まる可能性もあります
 ```
+### 発現量の対数値の差でてトランスクリプトをソートしファイルに書き出す
+次のエンリッチメント解析のため、発現量の差でトランスクリプトをソートしてファイルに書き出します。
+```
 
-### 発現量の対数値の差をファイルに書き出す
+```
+
+
+## 5. metascapeでエンリッチメント解析
 
