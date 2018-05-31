@@ -68,7 +68,7 @@ $ conda config --add channels bioconda
 $ conda install kallisto
 ```
 
-### jupyterをインストールする
+### jupyter, pandas etcをインストールする
 発現量のプロットにjupyterを使います。
 
 jupyterはminicondaがインストールされている状態でcondaを使ってインストールできます。
@@ -171,4 +171,79 @@ $ sort -k 5 -rn abundance.tsv | less
 
 
 ## 4. データ可視化
+
+### Jupyterを使って散布図をプロット
+二つのサンプルでそれぞれ発現量を計算したら、Jupyter Noteboookを使って、
+転写産物ごとのそれぞれの発現量を散布図にプロットして確認します。
+
+
+- ライブラリをインポート
+```python
+from pandas import Series, DataFrame
+import pandas as pd
+import csv
+import matplotlib.pyplot as plt
+import numpy as np
+```
+
+- 出力したabundance.tsvをpandasに読み込む
+```markdown
+e1 = pd.read_table(ERR1551404のabunndance.tsv)
+e1 = e1.drop(columns=['length', 'eff_length', 'est_counts'])
+e1.columns = ['target_id', 'TPM_ERR1551404']
+
+e2 = pd.read_table(ERR1551408のabunndance.tsv)
+e2 = e2.drop(columns=['length', 'eff_length', 'est_counts'])
+e2.columns = ['target_id', 'TPM_ERR1551404']
+
+e = pd.merge(e1, e2, on='target_id')
+```
+- DataFrameに必要なフィールド（だけ）が含まれていることを確認
+```python
+e.head()
+```
+- そのままmatplotlibで散布図を書く
+```python
+plt.scatter(e.TPM_ERR1551404, e.TPM_ERR1551408)
+plt.xlabel('ERR1551408')
+plt.ylabel('ERR1551404')
+```
+
+- TPMの対数を計算しdfに追加する
+```python
+e['log_ERR1551404'] = np.log10(e['TPM_ERR1551404'] + 1)
+e['log_ERR1551408'] = np.log10(e['TPM_ERR1551408'] + 1)
+e['diff'] = abs(e['log_ERR1551404'] - e['log_ERR1551408'])
+e.head() 
+```
+
+- 対数値を散布図にプロットする
+```python
+plt.scatter(e.log_ERR1551404, e.log_ERR1551408)
+plt.xlabel('ERR1551408')
+plt.ylabel('ERR1551404')
+```
+
+### plotlyで散布図を描画してみる
+plotlyで同様の散布図を描画してみます。
+ブラウザでレンダリングするにはかなり大きいデータですので、余裕があれば試してみてください。
+
+```python
+from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
+import plotly.graph_objs as go
+#import plotly.offline
+
+init_notebook_mode(connected=False)  
+
+data = [go.Scatter(
+        x = e['log_ERR1551404'],
+        y = e['log_ERR1551408'],
+        mode = 'markers'
+    )]
+
+plot(data, filename='basic-scatter') 
+# plotの代わりにiplotでも良いですが、メモリが足りずNotebookが固まる可能性もあります
+```
+
+### 発現量の対数値の差をファイルに書き出す
 
