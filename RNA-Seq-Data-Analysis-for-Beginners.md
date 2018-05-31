@@ -247,7 +247,7 @@ plot(data, filename='basic-scatter')
 ### 発現量の対数値の差でトランスクリプトをソートしファイルに書き出す
 次のエンリッチメント解析のため、発現量の差でトランスクリプトをソートしてファイルに書き出します。
 ```
-
+e.sort_values('diff', ascending=False)[['target_id', 'diff']].iloc[:1000].to_csv('ranking_1000.txt', index=False, sep='\t')
 ```
 
 
