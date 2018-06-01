@@ -142,6 +142,29 @@ ERR1551404_1.fastq    ERR1551404_2.fastq
 ```
 $ fastq-dump --split-files ERR1551408.sra
 ```
+
+
+※　fastq-dumpより速いpfastq-dumpの紹介
+
+fastq-dumpはそれなりに時間のかかる処理ですが、お使いの端末のSSDに余裕があるようでしたら、
+より処理速度の速い並列版の __pfastq-dump__ をおすすめします。
+
+インストールはgithubから。
+```
+$ git clone https://github.com/inutano/pfastq-dump
+$ cd pfastq-dump
+$ chmod a+x bin/pfastq-dump
+```
+そして下記例のように実行できます。
+```
+pfastq-dump –threads 8 –outdir fq/ DRR1551404.sra
+```
+
+詳細は下記リンクをご参考にしてください。
+[並列版 fastq-dump](https://bonohu.wordpress.com/2017/06/20/parallel-fastq-dump/)
+
+
+
 ### kallisto indexでヒトのトランスクリプトームのインデックスを作成する 
 kallistoではindexファイルを配布するより、kallisto indexで構築した方が速いということで、
 [Ensembl](https://www.ensembl.org/info/data/ftp/index.html)からfastaファイルをダウンロードして
