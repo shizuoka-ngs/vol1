@@ -204,6 +204,11 @@ $ sort -k 5 -rn abundance.tsv | less
 二つのサンプルでそれぞれ発現量を計算したら、Jupyter Noteboookを使って、
 転写産物ごとのそれぞれの発現量を散布図にプロットして確認します。
 
+- Jupyter Notebookを起動します。
+```
+$ jupyter notebook
+```
+以下Jupyter Notebookのコードセルに記述する内容です。
 
 - ライブラリをインポート
 ```python
