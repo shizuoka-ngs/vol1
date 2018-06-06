@@ -157,7 +157,7 @@ $ chmod a+x bin/pfastq-dump
 ```
 そして下記例のように実行できます。
 ```
-pfastq-dump –threads 8 –outdir fq/ DRR1551404.sra
+$ pfastq-dump –threads 4 –outdir fq/ DRR1551404.sra
 ```
 
 詳細は下記リンクをご参考にしてください。
