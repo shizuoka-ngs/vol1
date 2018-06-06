@@ -10,7 +10,7 @@ App storeからインストールします。
 
 Macの各種ライブラリのインストールに必要なのはxcodeの"Command Line Tools"なのですが、
 現在は
-[Command Lione Toolsだけをインストールすることもできるようです](https://qiita.com/iwaseasahi/items/eb820762600c815ab100)。
+[Command Line Toolsだけをインストールすることもできるようです](https://qiita.com/iwaseasahi/items/eb820762600c815ab100)。
 
 この方法は自分では試していませんが、iOSの開発はしないからXcodeは必要無いという人はこちらでも良いかもしれません。
 
