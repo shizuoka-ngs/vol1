@@ -71,6 +71,10 @@ $ conda config --add channels bioconda
 $ conda install kallisto
 ```
 
+※ kallistoはHomebrewでもインストールすることはできますが、brewsci/scieneをtapして置く必要があります。
+詳細は[こちら](https://qiita.com/epsilonminder/items/e3b1fc00edb63cb3a32b)で。
+
+
 ### jupyter, pandas etcをインストールする
 発現量のプロットにjupyterを使います。
 
