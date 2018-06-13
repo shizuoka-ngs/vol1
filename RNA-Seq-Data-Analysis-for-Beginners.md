@@ -1,7 +1,7 @@
 # 生命科学ガチ初心者でもできるRNA-seqデータ解析 - kallistoでトランスクリプトを発現定量してみよう
 
 - 資料：[https://github.com/shizuoka-ngs/vol1](hhttps://github.com/shizuoka-ngs/vol1/blob/master/RNA-Seq-Data-Analysis-for-Beginners.md)
-- 概要：ヒトの乳癌細胞株MCF-7で低酸素ストレス下とコントロールの転写産物をkallistoで定量し発現解析を行います。
+- 概要：ヒトのCell line RCC4で低酸素ストレス状態のサンプルと、VHLをレスキューしたサンプルをkallistoで定量し発現解析を行います。
 
 ## 1. 端末の環境設定（Mac）
 
@@ -140,13 +140,13 @@ $ fastq-dump --split-files 取得したSRAファイルのパス
 ```
 配布したSRAを使うのならば、以下のような二つのファイルができるはず。
 ```
-$ fastq-dump --split-files ERR1551404.sra 
+$ fastq-dump --split-files DRR100656.sra 
 $ ls
-ERR1551404_1.fastq    ERR1551404_2.fastq
+DRR100656_1.fastq    DRR100656_2.fastq
 ```
 コントロールのサンプルについてもfastqを生成しておきます。
 ```
-$ fastq-dump --split-files ERR1551408.sra
+$ fastq-dump --split-files  DRR100657.sra
 ```
 
 
@@ -178,7 +178,7 @@ kallistoではindexファイルを配布するより、kallisto indexで構築�
 このファイルを使って（gzipのままでOK）下記のようにインデックスを作成します。
 
 ```
-$ kallisto index -i filename_anything_you_like Homo_sapiens.GRCh38.cdna.all.fa.gz
+$ kallisto index -i ex_GRCh38_index Homo_sapiens.GRCh38.cdna.all.fa.gz
 ```
 
 ### 定量する
@@ -190,7 +190,7 @@ $ kallisto quant -i index_file_name -o output_dir_name ERR1551404_1.fastq ERR155
 ```
 kallistoはthread数をオプションで指定できるので、例えばコア数2のMacBook Airでは下記のような例となります。
 ```
-$ kallisto quant -t 2 -i GRCh38_kallisto_index -o . ERR1551404_1.fastq ERR1551404_2.fastq
+$ kallisto quant -t 2 -i GRCh38_index -o DRR100656_result/ DRR100656_1.fastq DRR100656_2.fastq 
 ```
 kallistoの使い方の詳細については[こちらのブログ](https://bonohu.wordpress.com/2017/11/15/kallisto/)が参考になると思います。
 
