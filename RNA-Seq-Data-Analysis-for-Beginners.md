@@ -38,6 +38,8 @@ Homebrew で下記の様にあらかじめインストールしておくのが�
 ```
 $ brew install git
 ```
+※ 一台のMacに複数のユーザを設定して使っている場合、homebrewを使うとpermission errorとなるケースがあるようです。
+homebrewは現在sudoすることができないため、この場合/usr/local/Cellarをchownする必要があります。詳細は[こちら](https://qiita.com/HIROSHI-1403/items/c90699c1a3f3bd9d63f9)を参考に。
 
 ### minicondaをインストールする
 
