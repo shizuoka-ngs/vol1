@@ -40,7 +40,6 @@ $ brew install git
 ```
 ※ 一台のMacに複数のユーザを設定して使っている場合、homebrewを使うとpermission errorとなるケースがあるようです。
 homebrewは現在sudoすることができないため、この場合/usr/local/Cellarをchownする必要があります。詳細は[こちら](https://qiita.com/HIROSHI-1403/items/c90699c1a3f3bd9d63f9)を参考に。
-※ どうしてもbrew install sratoolkitできない時は（homebrewを使い続けていると古いライブラリが残っていたりして解決できない時があります）直接NCBIからダウンロードした方が早い場合もあるかもしれません。「brew installできなそう」と感じた時は[こちら](http://www.sthda.com/english/wiki/install-sra-toolkit)をご参考に。
 
 ### minicondaをインストールする
 
@@ -60,7 +59,7 @@ sratoolkitをHomebrewでインストールしておきます。
 ```
 $ brew install sratoolkit
 ```
-
+※ どうしてもbrew install sratoolkitできない時は（homebrewを使い続けていると古いライブラリが残っていたりして、モジュールのバッディングを上手く解決できない時があります）直接NCBIからダウンロードした方が早い場合もあるかもしれません。「brew installできなそう」と感じた時は[こちら](http://www.sthda.com/english/wiki/install-sra-toolkit)をご参考に。
 
 ### kallistoをインストール
 
