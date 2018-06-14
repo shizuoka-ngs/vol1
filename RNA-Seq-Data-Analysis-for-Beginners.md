@@ -120,14 +120,14 @@ Ensemblの[ヒトcDNA配列のftpサイト](ftp://ftp.ensembl.org/pub/release-92
 kallistoの解析には今回ペアエンドのfastqファイルを利用します。ただしfastqファイルは非常に多くダウンロードに時間がかかるため、
 今回は圧縮されファイルサイズの小さいsraファイルをダウンロードして、これをfastq-dumpを使ってペアエンドのfastqを自分で生成しています。
 
-解析するサンプルはMCF-7の低酸素状態の細胞と、コントロールの細胞から配列データをSRAファイルで入手します。
+解析するサンプルは、低酸素状態のCell line（RCC4-EV）と、低酸素状態をレスキューしたRCC4-VHLです。
 
-サンプルデータについての詳細は[ArrayExress:E-MTAB-4264 - Tuning the transcriptional response to hypoxia through HIF prolyl- and asparaginyl-hydroxylase inhibition:Sequencing Data](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-4264/samples/) をご覧ください。
+詳細は[scientific reports](http://www.nature.com/articles/s41598-018-27220-8) をご覧ください。
 
 実際に入手したファイル（低酸素状態・コントロール）は下記の通りです。
 
-- ERR1551404.sra: ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sralite/ByExp/litesra/ERX/ERX162/ERX1622160/ERR1551404/ERR1551404.sra
-- ERR1551408.sra: ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sralite/ByExp/litesra/ERX/ERX162/ERX1622164/ERR1551408/ERR1551408.sra
+- DRR100657.sra: ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sra/ByExp/sra/DRX/DRX094/DRX094090/DRR100657/DRR100657.sra
+- DRR100656.sra: ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sra/ByExp/sra/DRX/DRX094/DRX094089/DRR100656/DRR100656.sra
 
 ## 3. 発現解析
 
