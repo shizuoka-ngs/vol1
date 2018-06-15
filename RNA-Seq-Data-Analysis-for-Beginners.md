@@ -186,7 +186,7 @@ kallisto quantoで発現量を定量します。ペアエンドの定量なの�
 _1.fastqと_2.fastをセットで使います。
 
 ```
-$ kallisto quant -i index_file_name -o output_dir_name ERR1551404_1.fastq ERR1551404_2.fastq
+$ kallisto quant -i index_file_name -o output_dir_name fastq_file_1 fastq_file_2
 ```
 kallistoはthread数をオプションで指定できるので、例えばコア数2のMacBook Airでは下記のような例となります。
 ```
@@ -227,13 +227,13 @@ import numpy as np
 
 - 出力したabundance.tsvをpandasに読み込む
 ```markdown
-e1 = pd.read_table(ERR1551404のabunndance.tsv)
+e1 = pd.read_table(DRR100656のabunndance.tsv)
 e1 = e1.drop(columns=['length', 'eff_length', 'est_counts'])
-e1.columns = ['target_id', 'TPM_ERR1551404']
+e1.columns = ['target_id', 'TPM_DRR100656']
 
-e2 = pd.read_table(ERR1551408のabunndance.tsv)
+e2 = pd.read_table(DRR100657のabunndance.tsv)
 e2 = e2.drop(columns=['length', 'eff_length', 'est_counts'])
-e2.columns = ['target_id', 'TPM_ERR1551408']
+e2.columns = ['target_id', 'TPM_DRR100657']
 
 e = pd.merge(e1, e2, on='target_id')
 ```
@@ -243,23 +243,23 @@ e.head()
 ```
 - そのままmatplotlibで散布図を書く
 ```python
-plt.scatter(e.TPM_ERR1551404, e.TPM_ERR1551408)
-plt.xlabel('ERR1551408')
-plt.ylabel('ERR1551404')
+plt.scatter(e.TPM_DRR100656, e.TPM_DRR100657)
+plt.xlabel('DRR100657')
+plt.ylabel('DRR100656')
 ```
 
 - TPMの対数を計算しdfに追加する
 ```python
-e['log_ERR1551404'] = np.log10(e['TPM_ERR1551404'] + 1)
-e['log_ERR1551408'] = np.log10(e['TPM_ERR1551408'] + 1)
-e['diff'] = abs(e['log_ERR1551404'] - e['log_ERR1551408'])
+e['log_DRR100656'] = np.log10(e['TPM_RR100656'] + 1)
+e['log_DRR100657'] = np.log10(e['TPM_DRR100657'] + 1)
+e['diff'] = abs(e['log_DRR100656'] - e['log_DRR100657'])
 ```
 
 - 対数値を散布図にプロットする
 ```python
-plt.scatter(e.log_ERR1551404, e.log_ERR1551408)
-plt.xlabel('ERR1551408')
-plt.ylabel('ERR1551404')
+plt.scatter(e.log_DRR100656, e.log_DRR100657)
+plt.xlabel('DRR100657')
+plt.ylabel('DRR100656')
 ```
 
 ### plotlyで散布図を描画してみる
@@ -273,8 +273,8 @@ import plotly.graph_objs as go
 init_notebook_mode(connected=False)  
 
 data = [go.Scatter(
-        x = e['log_ERR1551404'],
-        y = e['log_ERR1551408'],
+        x = e['log_DRR100656'],
+        y = e['log_DRR100657'],
         mode = 'markers'
     )]
 
