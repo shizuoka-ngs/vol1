@@ -120,7 +120,7 @@ Ensemblの[ヒトcDNA配列のftpサイト](ftp://ftp.ensembl.org/pub/release-92
 kallistoの解析には今回ペアエンドのfastqファイルを利用します。ただしfastqファイルは非常に多くダウンロードに時間がかかるため、
 今回は圧縮されファイルサイズの小さいsraファイルをダウンロードして、これをfastq-dumpを使ってペアエンドのfastqを自分で生成しています。
 
-解析するサンプルは、低酸素状態のCell line（RCC4-EV）と、低酸素状態をレスキューしたRCC4-VHLです。
+解析するサンプルは、低酸素状態のCell line（RCC4-EV, DRR100656）と、低酸素状態をレスキューしたRCC4-VHL（DRR100657）です。
 
 詳細は[scientific reports](http://www.nature.com/articles/s41598-018-27220-8) をご覧ください。
 
