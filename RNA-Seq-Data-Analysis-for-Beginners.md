@@ -12,7 +12,7 @@ Macの各種ライブラリのインストールに必要なのはxcodeの"Comma
 現在は
 [Command Line Toolsだけをインストールすることもできるようです](https://qiita.com/iwaseasahi/items/eb820762600c815ab100)。
 
-この方法は自分では試していませんが、iOSの開発はしないからXcodeは必要無いという人はこちらでも良いかもしれません。
+iOSの開発はしないからXcodeは必要無いという人はこちらでも良いかもしれません。
 
 
 ### Homebrewをインストールする
