@@ -30,7 +30,7 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 インストールをスムーズに行うことができる場合があります。
 ```
 $ brew tap brewsci/science
-$ brew tap brewscie/bio
+$ brew tap brewsci/bio
 
 ```
 sratoolkitをcondaでは無く（今回のハンズオンではconda installします）brewでインストールするときなどはtapが必要です。
