@@ -26,6 +26,15 @@ macOS用のパッケージマネージャーです。すでにインストール
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+※ 今回は必要ありませんが、Bioinfomatics関係のライブラリをインストールする際は、フォーミュラをbrew tapでリポジトリに取り込んで置くと
+インストールをスムーズに行うことができる場合があります。
+```
+$ brew tap brewsci/science
+$ brew tap brewscie/bio
+
+```
+sratoolkitをcondaでは無く（今回のハンズオンではconda installします）brewでインストールするときなどはtapが必要です。
+
 ### gitをインストールする
 
 gitも無ければインストールしてください。今回のワークショップでは、必須ではないかもしれませんが、
