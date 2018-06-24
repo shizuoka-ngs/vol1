@@ -75,6 +75,7 @@ $ brew install sratoolkit
 kallistoは [condaコマンドでインストールすることができます](https://bioconda.github.io/recipes/kallisto/README.html)。
 
 ```
+$ source ~/.bashrprofile
 $ conda config --add channels defaults
 $ conda config --add channels conda-forge
 $ conda config --add channels bioconda
