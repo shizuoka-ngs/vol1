@@ -33,7 +33,6 @@ $ brew tap brewsci/science
 $ brew tap brewsci/bio
 
 ```
-sratoolkitをcondaでは無く（今回のハンズオンではconda installします）brewでインストールするときなどはtapが必要です。
 
 ### gitをインストールする
 
