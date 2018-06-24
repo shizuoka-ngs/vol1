@@ -12,7 +12,7 @@ Macの各種ライブラリのインストールに必要なのはxcodeの"Comma
 現在は
 [Command Line Toolsだけをインストールすることもできるようです](https://qiita.com/iwaseasahi/items/eb820762600c815ab100)。
 
-この方法は自分では試していませんが、iOSの開発はしないからXcodeは必要無いという人はこちらでも良いかもしれません。
+iOSの開発はしないからXcodeは必要無いという人はこちらでも良いかもしれません。
 
 
 ### Homebrewをインストールする
@@ -201,6 +201,8 @@ kallistoはthread数をオプションで指定できるので、例えばコア
 ```
 $ kallisto quant -t 2 -i GRCh38_index -o DRR100656_result/ DRR100656_1.fastq DRR100656_2.fastq 
 ```
+※ お使いの端末に合わせて-tオプションの値は変更して下さい。上記では2としていますが、MacBook Airでは4でも処理できました（貸出用端末で検証）。
+
 kallistoの使い方の詳細については[こちらのブログ](https://bonohu.wordpress.com/2017/11/15/kallisto/)が参考になると思います。
 
 ### 確認
