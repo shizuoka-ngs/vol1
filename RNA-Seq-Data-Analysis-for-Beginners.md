@@ -98,6 +98,7 @@ $ conda install pandas
 $ conda install matplotlib
 $ conda install plotly
 ```
+※　もちろん、```$ conda install jupyter pandas matplotlib plotly``` でもOK
 
 
 ### その他インストールしておく方が良いツール
