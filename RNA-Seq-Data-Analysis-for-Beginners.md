@@ -1,7 +1,7 @@
 # 生命科学ガチ初心者でもできるRNA-seqデータ解析 - kallistoでトランスクリプトを発現定量してみよう
 
 - 資料：[https://github.com/shizuoka-ngs/vol1](hhttps://github.com/shizuoka-ngs/vol1/blob/master/RNA-Seq-Data-Analysis-for-Beginners.md)
-- 概要：ヒトのCell line RCC4で低酸素ストレス状態のサンプルと、VHLをレスキューしたサンプルをkallistoで定量し発現解析を行います。参考：(Scientific Reports)[https://www.nature.com/articles/s41598-018-27220-8]
+- 概要：ヒトのCell line RCC4で低酸素ストレス状態のサンプルと、VHLをレスキューしたサンプルをkallistoで定量し発現解析を行います。参考：[Scientific Reports](https://www.nature.com/articles/s41598-018-27220-8)
 
 ## 1. 端末の環境設定（Mac）
 
