@@ -261,8 +261,8 @@ e.head()
 - そのままmatplotlibで散布図を書く
 ```python
 plt.scatter(e.TPM_DRR100656, e.TPM_DRR100657)
-plt.xlabel('DRR100657')
-plt.ylabel('DRR100656')
+plt.xlabel('DRR100656')
+plt.ylabel('DRR100657')
 ```
 
 - TPMの対数を計算しdfに追加する
